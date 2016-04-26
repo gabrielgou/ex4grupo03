@@ -27,7 +27,7 @@ void sorteio()
     int i=0;
     if(arquivo==NULL)
     {
-        printf("A biblioteca nÃ£o foi encontrada por favor, coloque o arquivo da biblioteca no mesmo local do arquivo e reinicie.\n");
+        printf("A biblioteca nao foi encontrada, por favor, coloque o arquivo da biblioteca no mesmo local do arquivo e reinicie.\n");
         exit(EXIT_FAILURE);
     }
     else
@@ -47,7 +47,7 @@ void sorteio()
             __fpurge(stdin);
             getchar();
             pergunta=strtok(NULL, ":");
-            printf("A resopsta eh: %s\n", pergunta);
+            printf("A resposta eh: %s\n", pergunta);
             printf("De uma nota a pergunta de 0 a 5: ");
             scanf("%d", &nota);
             rewind(arquivo);
