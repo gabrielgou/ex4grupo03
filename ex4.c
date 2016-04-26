@@ -50,11 +50,20 @@ void sorteio()
             printf("A resposta eh: %s\n", pergunta);
             printf("De uma nota a pergunta de 0 a 5: ");
             scanf("%d", &nota);
+            grava_palavras(i, nota);
             rewind(arquivo);
         }
     }
     
     fclose(arquivo);
+}
+
+void grava_palavras(int _palavra, int _nota) /* funcao que grava a palavra*/
+
+{
+    FILE *p;
+    p = fopen("palavras.txt", "w+");
+    fprintf(p, "%d %d\n", _palavra, _nota);      
 }
 
 void grava_data()
