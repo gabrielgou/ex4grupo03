@@ -1,3 +1,14 @@
+/* EXERCICIO PARA DESENVOLVIMENTO DE UM METODO DE APRENDIZAGEM POR REPETICAO
+ *
+ * ALUNOS: Bruna Hori
+ *         Jorge Edson da Silva 
+ *         Joao Gabriel Gouveia
+ *         Silas Marinho
+ *
+ *PROFESSOR ORIENTADOR: Dr. Ruben Carlo Benante
+ */
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -54,7 +65,7 @@ void sorteio()
             rewind(arquivo);
         }
     }
-    
+
     fclose(arquivo);
 }
 
@@ -95,18 +106,43 @@ void grava_data()
 void nlinhas()
 {
     char caractere;
-    FILE *o;
+    FILE *o, *w;
     o = fopen("special-1500-words.txt", "r");
-
+    w = fopen("consulta_nota.txt", "r");
     while(!feof(o))
-    {   
+    {
         caractere = fgetc(o);
-        if(caractere == '\n'){ // Ã© uma quebra de linha?
-            quant_linhas++;             
-        } 
+        if(caractere == '\n'){ /* eh uma quebra de linha?*/
+            quant_linhas++;
+        }
     }
-    printf("%d\n", quant_linhas);
+    if(w==NULL)
+    {
+        w=fopen("consulta_nota.txt","w");
+        int j;
+        for(j=0;j<quant_linhas;j++)
+            fprintf(w,"%d\n", j);
+        fclose(w);
+    }
     rewind(o);
     fclose(o);
     linhas_enable=1;
 }
+
+void computar(int linha, int nota)
+{
+    FILE *y;
+    y = fopen("consulta_nota.txt", "r+");
+    char caractere;
+    int line=0;
+    do
+    {
+        caractere=fgetc(y);
+        if(caractere=='\n')
+            line++;
+    }while(linha!=line);
+    fprintf(y, "%d %d", linha, nota);
+    fclose(y);
+
+}
+
