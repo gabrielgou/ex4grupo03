@@ -1,7 +1,7 @@
 /* EXERCICIO PARA DESENVOLVIMENTO DE UM METODO DE APRENDIZAGEM POR REPETICAO
  *
  * ALUNOS: Bruna Hori
- *         Jorge Edson da Silva 
+ *         Jorge Edson Ribeiro 
  *         Joao Gabriel Gouveia
  *         Silas Marinho
  *
@@ -72,9 +72,9 @@ void sorteio()
 void grava_palavras(int _palavra, int _nota) /* funcao que grava a palavra*/
 
 {
-    FILE *p;
-    p = fopen("palavras.txt", "w+");
-    fprintf(p, "%d %d\n", _palavra, _nota);      
+    FILE *palavrinha;
+    palavrinha = fopen("palavras.txt", "a");
+    fprintf(palavrinha, "%d %d\n", _palavra, _nota);      
 }
 
 void grava_data()
