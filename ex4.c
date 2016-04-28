@@ -75,6 +75,11 @@ void grava_palavras(int _palavra, int _nota) /* funcao que grava a palavra*/
     FILE *palavrinha;
     palavrinha = fopen("palavras.txt", "a");
     fprintf(palavrinha, "%d %d\n", _palavra, _nota);      
+    while(_nota>5)
+    {
+        printf("Insira um valor valido\n");
+        scanf("%d", &_nota);
+    }
 }
 
 void grava_data()
